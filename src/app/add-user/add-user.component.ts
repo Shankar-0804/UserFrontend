@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
 })
 export class AddUserComponent {
   userData: any = {
-    id: '',
     name: '',
     city: '',
     state: '',
