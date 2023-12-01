@@ -5,22 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AddUserComponent } from './add-user/add-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SaveUserComponent } from './save-user/save-user.component';
+import { FormsModule } from '@angular/forms';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    AddUserComponent
+    SaveUserComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FormsModule
+    
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,39 +1,37 @@
-/* Add this CSS to your stylesheet */
+/* Style for the table */
+table {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  margin-left: 20%;
+}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .table th,
-  .table td {
-    padding: 8px 12px;
-    text-align: left;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  
-  .table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .table tbody tr:hover {
-    background-color: #f0f0f0;
-  }
-  
+h1{
+  margin-left: 40%;
+}
+
+
+
+/* Style for table headers */
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Style for table data cells */
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+/* Alternate row color for better readability */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect on rows */
+tbody tr:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}

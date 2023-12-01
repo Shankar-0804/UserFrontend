@@ -1,5 +1,7 @@
+import { UserService } from './../service/user.service';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-list',
@@ -7,13 +9,44 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: any[] = [];
+  userList: any[] = [];
+  showSuccessMessage : boolean = false;
+  newUser : any = {};
 
-  constructor(private userService: UserService) { }
+  private url = 'http://localhost:8080/api/users';
+
+  constructor(private service : UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe(data => {
-      this.users = data;
-    });
+    this.fetchUsers();
+  }
+
+  fetchUsers() {
+    this.service.getUsers().subscribe(
+      (data: any[]) => {
+        this.userList = data;
+      },
+      (error : any) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
+  
+  onSubmitNewUser() {
+    
+
+    this.service.saveUser(this.newUser).subscribe(
+      (response) => {
+        
+        this.showSuccessMessage = true;
+
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 3000);
+      },
+      (error) => {
+        console.error('Error adding user:', error);
+      }
+    );
   }
 }

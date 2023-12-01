@@ -1,26 +1,30 @@
-<div class="container mt-4">
-  <h2>User List</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Country</th>
-        <th>Age</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.city }}</td>
-        <td>{{ user.state }}</td>
-        <td>{{ user.country }}</td>
-        <td>{{ user.age }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<form (ngSubmit)="onSubmitNewUser()" #userForm="ngForm">
+<h1>User List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.state }}</td>
+      <td>{{ user.country }}</td>
+      <td>{{ user.age }}</td>
+    </tr>
+  </tbody>
+</table>
+</form>
 
+<!-- Success message -->
+<div *ngIf="showSuccessMessage" style="color: green; margin-top: 10px;">
+  User added successfully!
+</div>
